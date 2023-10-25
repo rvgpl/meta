@@ -2,7 +2,9 @@
   <img src="logo.png" alt="Logo" height="90" />
 </p>
 
-<h1 align="center">Meta</h1>
+[![MIT](https://img.shields.io/github/license/rvgpl/meta)](https://github.com/rvgpl/meta/blob/main/LICENSE) 
+
+# Meta
 
 Extract metadata from any website with an API call. The API allows fetching of metatags, open graph data and fonts used.
 
