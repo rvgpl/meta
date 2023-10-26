@@ -1,14 +1,16 @@
-import type { Page } from 'puppeteer';
+import type { CheerioAPI } from 'cheerio';
 
-const getMetaTags = async (page: Page) => {
-  const metaTags = await page.evaluate(() => {
-    const title = document.querySelector('title')?.textContent;
-    const description = document
-      .querySelector("meta[name='description']")
-      ?.getAttribute('content');
-    return { title, description };
-  });
-  return metaTags;
+type MetaTags = {
+  title: string;
+  description: string;
+};
+
+const getMetaTags = async ($: CheerioAPI): Promise<MetaTags> => {
+  const title = $('title').text() || '';
+  const description =
+    $('meta[name="description"]').attr('content') || '';
+
+  return { title, description };
 };
 
 export { getMetaTags };

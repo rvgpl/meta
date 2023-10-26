@@ -7,11 +7,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "bun run --watch src/index.ts",
-    "postinstall": "bunx @puppeteer/browsers install chrome@stable --path $HOME/.cache/puppeteer"
+    "build": "bun build --target=bun ./src/index.ts --outfile=index.js"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
     "elysia": "latest",
-    "puppeteer": "^21.4.1"
+    "typescript": "^5.2.2"
   },
   "devDependencies": {
     "@types/web": "^0.0.119",

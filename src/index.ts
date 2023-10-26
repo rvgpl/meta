@@ -1,5 +1,5 @@
 import { Elysia, t } from 'elysia';
-import puppeteer from 'puppeteer';
+import cheerio from 'cheerio';
 import { getMetaTags } from './getMetaTags';
 import { isValidUrl } from './utils';
 
@@ -30,14 +30,10 @@ app.get(
       }
 
       if (html) {
-        const browser = await puppeteer.launch({ headless: 'new' });
-        const page = await browser.newPage();
-
-        await page.setContent(html);
-
+        const ch = cheerio.load(html);
         try {
-          const metaTags = await getMetaTags(page);
-          await browser.close();
+          const metaTags = await getMetaTags(ch);
+          // await browser.close();
           return { meta: metaTags };
         } catch (error) {
           throw new Error('Failed to parse the given URL.');
