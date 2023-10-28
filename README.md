@@ -8,7 +8,7 @@
 
 Extract metadata from any website with an API call. The API allows fetching of metatags, open graph data and fonts used.
 
-Built with [Elysia](https://elysiajs.com/) + [Puppeteer](https://pptr.dev/) with [Bun](https://bun.sh/) runtime
+Built with [Elysia](https://elysiajs.com/) + [Cheerio](https://cheerio.js.org/) with [Bun](https://bun.sh/) runtime
 
 
 ## Local Development
@@ -28,7 +28,7 @@ The API server will be live on http://localhost:3000/
 
 ## API
 
-Uses Elysia for managing routing and puppeteer to fetch the HTML of the page and retrieve meta data.
+Uses Elysia for managing routing and cheerio to parse the HTML of the page and retrieve meta data.
 
 Send a request with any URL, :
 
