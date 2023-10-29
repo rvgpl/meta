@@ -3,6 +3,7 @@ import cheerio from 'cheerio';
 import { getMetaTags } from './getMetaTags';
 import { isValidUrl } from './utils';
 import { getOGTags } from './getOgTags';
+import { getSchemaTags } from './getSchemaTags';
 
 const app = new Elysia({ prefix: '/v1' });
 
@@ -35,8 +36,13 @@ app.get(
         try {
           const metaTags = await getMetaTags(ch);
           const ogTags = await getOGTags(ch);
+          const schemaInfo = await getSchemaTags(ch);
 
-          return { meta: metaTags, openGraph: ogTags };
+          return {
+            meta: metaTags,
+            openGraph: ogTags,
+            schema: schemaInfo,
+          };
         } catch (error) {
           throw new Error('Failed to parse the given URL.');
         }
