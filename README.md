@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="logo.png" alt="Logo" height="90" />
+  <img src="public/logo.png" alt="Logo" height="90" />
 </p>
 
 [![MIT](https://img.shields.io/github/license/rvgpl/meta)](https://github.com/rvgpl/meta/blob/main/LICENSE)
 
 # Meta
 
-Extract metadata from any website with an API call. The API allows fetching of metatags, open graph data and fonts used.
+Extract metadata from any website with an API call. The API allows fetching of metatags, open graph data and schema tags.
 
 Built with [Elysia](https://elysiajs.com/) + [Cheerio](https://cheerio.js.org/) with [Bun](https://bun.sh/) runtime
 
@@ -19,7 +19,7 @@ The server is deployed using Docker on [Fly.io](https://fly.io). You can use the
 Send a request with any URL :
 
 ```
-https://getmetadata.fly.dev/v1?url=<insert_url_to_fetch_metadata>
+https://getmetadata.fly.dev/v1/meta?url=<insert_url_to_fetch_metadata>
 ```
 
 Responds with the metadata, OpenGraph data and used [Schema](https://schema.org) tags
@@ -30,7 +30,7 @@ Responds with the metadata, OpenGraph data and used [Schema](https://schema.org)
 Here is an example of fetching data from a Wikipedia article about Batman [https://en.wikipedia.org/wiki/Batman](https://en.wikipedia.org/wiki/Batman)
 
 ```
-https://getmetadata.fly.dev/v1?url=https://en.wikipedia.org/wiki/Batman
+https://getmetadata.fly.dev/v1/meta?url=https://en.wikipedia.org/wiki/Batman
 ```
 
 which returns the following JSON.
@@ -39,7 +39,7 @@ which returns the following JSON.
 {
   "meta": {
     "title": "Batman - Wikipedia",
-    "description": ""
+    "description": "Batman"
   },
   "openGraph": {
     "image": "https://upload.wikimedia.org/wikipedia/en/c/c7/Batman_Infobox.jpg",
