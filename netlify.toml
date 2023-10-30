@@ -1,7 +1,0 @@
-[build]
-  # custom build command that install bun and run build
-  command = "chmod a+x ./scripts/build.sh && ./scripts/build.sh"
-
-[build.environment]
-   # disable NPM install
-   NPM_FLAGS = "--version"
