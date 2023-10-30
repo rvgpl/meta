@@ -17,7 +17,8 @@ RUN bun build:prod
 
 # Set environment variables
 ENV NODE_ENV=production
+CMD bun run start
+
 ENV PORT 3000
 ENV HOSTNAME localhost
 EXPOSE 3000
-CMD bun run start
