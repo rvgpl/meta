@@ -1,0 +1,88 @@
+  <!doctype html>
+  <html lang="en">
+    <head>
+    <title>Extract metadata from any website</title>
+    <link rel="stylesheet" href="/public/styles.css" />
+    </head>
+    <body>
+      <main class="container">
+        <section class="intro">
+          <img class="logo" src="/public/logo.png" alt="logo" />
+          <h1 class="main-title">
+            Extract meta-data from any website
+          </h1>
+          <h2 class="main-subtitle">with one simple API call.</h2>
+          <p>
+            An API that fetches <span>meta</span>,
+            <span> open graph</span> data, <span>schema.org</span> tags
+            from any given website.
+          </p>
+        </section>
+        <section class="demo">
+          <p>Send a request with any URL:</p>
+          <code
+          >https://getmetadata.fly.dev/v1/meta?url=https://en.wikipedia.org/wiki/Batman
+          </code>
+          <p>which returns the following JSON.</p>
+          <pre>
+{
+   "meta":{
+      "title":"Batman - Wikipedia",
+      "description":"Batman"
+   },
+
+   "openGraph":{
+      "image":"https://upload.wikimedia.org/wikipedia/en/c/c7/Batman_Infobox.jpg",
+      "image:width":"640",
+      "image:height":"1061",
+      "title":"Batman - Wikipedia",
+      "type":"website"
+   },
+
+   "schema":[
+      {
+         "@context":"https://schema.org",
+         "@type":"Article",
+         "name":"Batman",
+         "url":"https://en.wikipedia.org/wiki/Batman",
+         "sameAs":"http://www.wikidata.org/entity/Q2695156",
+         "mainEntity":"http://www.wikidata.org/entity/Q2695156",
+         "author":{
+            "@type":"Organization",
+            "name":"Contributors to Wikimedia projects"
+         },
+
+         "publisher":{
+            "@type":"Organization",
+            "name":"Wikimedia Foundation, Inc.",
+            "logo":{
+               "@type":"ImageObject",
+               "url":"https://www.wikimedia.org/static/images/wmf-hor-googpub.png"
+            }
+         },
+
+         "datePublished":"2001-10-23T04:05:04Z",
+         "dateModified":"2023-10-28T07:19:29Z",
+         "image":"https://upload.wikimedia.org/wikipedia/en/c/c7/Batman_Infobox.jpg",
+         "headline":"comic book superhero"
+      }
+   ]
+}
+          </pre>
+        </section>
+
+        <section>
+          <p>Built with <a href="https://elysiajs.com/" rel=”noopener noreferrer”>Elysia</a> + <a href="https://cheerio.js.org/" rel=”noopener noreferrer”>Cheerio</a> with <a href="https://bun.sh/" rel=”noopener noreferrer”>Bun</a> runtime</p>
+            <p>
+            View Repo:
+            <a href="https://www.github.com/rvgpl/meta">Github</a>
+          </p>
+        </section>
+
+        <footer>
+          Built by
+          <a href="https://www.ravigopal.com">Ravigopal Kesari</a>
+        </footer>
+      </main>
+    </body>
+  </html>
