@@ -4,8 +4,16 @@ import { getMetaTags } from './getMetaTags';
 import { isValidUrl } from './utils';
 import { getOGTags } from './getOgTags';
 import { getSchemaTags } from './getSchemaTags';
+import { staticPlugin } from '@elysiajs/static';
+import { html } from '@elysiajs/html';
 
-const app = new Elysia({ prefix: '/v1' });
+const app = new Elysia();
+
+// @ts-ignore
+app.use(html());
+
+// @ts-ignore
+app.use(staticPlugin());
 
 app.onError(({ error }) => {
   return { error: error.toString() };
@@ -13,8 +21,10 @@ app.onError(({ error }) => {
 
 app.get('/ping', () => 'pong');
 
+app.get('/', () => Bun.file('./public/index.html'));
+
 app.get(
-  '/',
+  '/v1/meta',
   async ({ query, set }) => {
     let html = null;
 
@@ -61,6 +71,6 @@ app.get(
   }
 );
 
-app.listen(process.env.PORT ?? 4000, ({ hostname, port }) => {
+app.listen(process.env.PORT ?? 3000, ({ hostname, port }) => {
   console.log(`🦊 Elysia is running at http://${hostname}:${port}`);
 });
