@@ -3,5 +3,6 @@ version: '3'
 services:
   getmetadata:
     container_name: getmetadata
+    build: .
     ports:
       - '3000:3000'
