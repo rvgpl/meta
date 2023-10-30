@@ -12,6 +12,7 @@ WORKDIR /app
 # Copy files
 COPY --from=deps /app/node_modules/ ./node_modules/
 COPY src/ ./src/
+COPY public/ ./public/
 COPY .env* package.json tsconfig.json ./
 RUN bun build:prod
 
