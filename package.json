@@ -11,6 +11,8 @@
     "start": "bun dist/index.js"
   },
   "dependencies": {
+    "@elysiajs/html": "^0.7.3",
+    "@elysiajs/static": "^0.7.1",
     "cheerio": "^1.0.0-rc.12",
     "elysia": "latest",
     "typescript": "^5.2.2"
